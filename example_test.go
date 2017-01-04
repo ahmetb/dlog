@@ -1,4 +1,4 @@
-package dlog
+package dlog_test
 
 import (
 	"bufio"
