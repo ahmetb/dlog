@@ -2,6 +2,8 @@
 
 Go library to parse the binary Docker Logs stream into plain text.
 
+[![GoDoc](https://godoc.org/github.com/ahmetalpbalkan/dlog?status.svg)](https://godoc.org/github.com/ahmetalpbalkan/dlog)
+
 `dlog` offers a single method: `NewReader(r io.Reader) io.Reader`. You are
 supposed to give the response body of the `/containers/<id>/logs`. The returned
 reader strips off the log headers and just gives the plain text to be used.
@@ -23,6 +25,8 @@ method, or by calling the [container logs endpoint][rapi] direclty via the UNIX 
 directly.
 
 See [`example_test.go`](./example_test.go) for an example usage.
+
+This library is written in vanilla Go and has no external dependencies.
 
 [gocl]: https://github.com/fsouza/go-dockerclient
 [gocl-logs]: https://godoc.org/github.com/fsouza/go-dockerclient#Client.Logs

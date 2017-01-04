@@ -28,7 +28,7 @@ type reader struct {
 }
 
 // NewReader returns a reader that strips off the message headers from the
-// underlying raw docker logs stream and returns the messages.T
+// underlying raw docker logs stream and returns the messages.
 func NewReader(r io.Reader) io.Reader {
 	return &reader{
 		r:         r,
