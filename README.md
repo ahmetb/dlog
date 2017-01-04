@@ -35,6 +35,6 @@ This library is written in vanilla Go and has no external dependencies.
 
 -----
 
-Licensed under Apache 2.0. Copyright 2016 [Ahmet Alp Balkan][ab].
+Licensed under Apache 2.0. Copyright 2017 [Ahmet Alp Balkan][ab].
 
 [ab]: https://ahmetalpbalkan.com/
