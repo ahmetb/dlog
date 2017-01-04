@@ -3,6 +3,7 @@
 Go library to parse the binary Docker Logs stream into plain text.
 
 [![GoDoc](https://godoc.org/github.com/ahmetalpbalkan/dlog?status.svg)](https://godoc.org/github.com/ahmetalpbalkan/dlog)
+[![Coverage Status](https://coveralls.io/repos/github/ahmetalpbalkan/dlog/badge.svg?branch=master)](https://coveralls.io/github/ahmetalpbalkan/dlog?branch=master)
 
 `dlog` offers a single method: `NewReader(r io.Reader) io.Reader`. You are
 supposed to give the response body of the `/containers/<id>/logs`. The returned
