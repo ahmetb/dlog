@@ -3,6 +3,7 @@ package dlog_test
 import (
 	"bufio"
 	"context"
+	"fmt"
 	"log"
 	"net"
 	"net/http"
@@ -11,18 +12,15 @@ import (
 )
 
 func ExampleNewReader() {
-	conn, err := net.DialUnix("unix", nil, &net.UnixAddr{
-		Name: "/var/run/docker.sock",
-		Net:  "unix"})
-	if err != nil {
-		log.Fatalf("cannot connect docker socket: %v", err)
-	}
-
-	client := &http.Client{Transport: &http.Transport{
-		DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
-			return conn, nil
-		}}}
-
+	client := &http.Client{
+		Transport: &http.Transport{
+			DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
+				conn, err := net.Dial("unix", "/var/run/docker.sock")
+				if err != nil {
+					return nil, fmt.Errorf("cannot connect docker socket: %v", err)
+				}
+				return conn, nil
+			}}}
 	url := "http://-/containers/CONTAINER_NAME/logs?stdout=1&stderr=1&follow=1"
 	resp, err := client.Get(url)
 	if err != nil {
