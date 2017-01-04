@@ -6,13 +6,27 @@ Go library to parse the binary Docker Logs stream into plain text.
 supposed to give the response body of the `/containers/<id>/logs`. The returned
 reader strips off the log headers and just gives the plain text to be used.
 
-You can get the logs stream from [go-dockerclient][gocl]'s `Logs()`[gocl-logs] method,
-or by calling the endpoint via the UNIX socket directly.
+Here is how a log line from container looks like in the  the raw docker logs
+stream:
 
-See [`example_test.go`][./example_test.go] for an example usage.
+```text
+01 00 00 00 00 00 00 1f 52 6f 73 65 73 20 61 72  65 ...
+│  ─────┬── ─────┬─────  R  o  s  e  s     a  r   e ...
+│       │        │
+└stdout │        │
+        │        └─ 0x0000001f = log message is 31 bytes
+      unused
+```
+
+You can get the logs stream from [go-dockerclient][gocl]'s [`Logs()`][gocl-logs]
+method, or by calling the [container logs endpoint][rapi] direclty via the UNIX socket
+directly.
+
+See [`example_test.go`](./example_test.go) for an example usage.
 
 [gocl]: https://github.com/fsouza/go-dockerclient
 [gocl-logs]: https://godoc.org/github.com/fsouza/go-dockerclient#Client.Logs
+[rapi]: https://docs.docker.com/engine/reference/api/docker_remote_api_v1.24/#/get-container-logs
 
 -----
 
