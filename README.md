@@ -3,6 +3,7 @@
 Go library to parse the binary Docker Logs stream into plain text.
 
 [![GoDoc](https://godoc.org/github.com/ahmetalpbalkan/dlog?status.svg)](https://godoc.org/github.com/ahmetalpbalkan/dlog)
+[![Build Status](https://travis-ci.org/ahmetalpbalkan/dlog.svg?branch=master)](https://travis-ci.org/ahmetalpbalkan/dlog)
 [![Coverage Status](https://coveralls.io/repos/github/ahmetalpbalkan/dlog/badge.svg?branch=master)](https://coveralls.io/github/ahmetalpbalkan/dlog?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ahmetalpbalkan/dlog)](https://goreportcard.com/report/github.com/ahmetalpbalkan/dlog)
 
